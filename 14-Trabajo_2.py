@@ -65,7 +65,7 @@ class MiVentana(QMainWindow):
 
     def on_editar1(self):
         self.nuevo.setEnabled(False)
-        self.editar.setEnabled(True)
+        self.editar.setEnabled(False)
         self.eliminar.setEnabled(False)
         self.aceptar.setEnabled(True)
         self.cancelar.setEnabled(True)
@@ -91,7 +91,7 @@ class MiVentana(QMainWindow):
         self.correo.setText(fila[3])
         self.telefono.setText(fila[5])
         self.direccion.setText(str(fila[4]))
-        self.fecha.setText(fila[6])
+        self.fecha.setText(str(fila[6]))
         self.altura.setText(str(fila[7]))
         self.peso.setText(str(fila[8])) 
 
@@ -159,11 +159,11 @@ class MiVentana(QMainWindow):
         print(self.flag)
         if self.flag == True:
             self.on_crear()
-            print("paso por crear")
             self.on_reset()
             self.on_recargar_lista()
         elif self.flag == False:
             self.on_actualizar()
+            self.on_reset()
             self.on_recargar_lista()
     
     def on_cancelar(self):
